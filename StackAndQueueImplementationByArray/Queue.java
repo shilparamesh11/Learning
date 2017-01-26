@@ -3,7 +3,7 @@ import java.lang.UnsupportedOperationException;
 
 public class Queue<T>
 {
-	private int DEFAULT_QUEUE_SIZE=10;
+	private static final int DEFAULT_QUEUE_SIZE=10;
 	private int size;
 	private int rarePointer=-1;
 	private T[] queueArray;
@@ -77,7 +77,7 @@ public class Queue<T>
 	{
 		if(!isEmpty())
 		{
-			for(int i=0;i<rarePointer;i++)
+			for(int i=0;i<=rarePointer;i++)
 			{
 				if(queueArray[i].equals(element))
 				{

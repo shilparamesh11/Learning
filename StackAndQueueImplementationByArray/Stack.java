@@ -3,20 +3,20 @@ import java.lang.UnsupportedOperationException;
 
 public class Stack<T>
 {
-	private int DEFAULT_STACK_SIZE=10
+	private static final int DEFAULT_STACK_SIZE=10;
 	private int size;
 	private int topPointer=-1;
 	private T[] stackArray;
-
-	public Stack()
-	{
-		this(DEFAULT_STACK_SIZE);
-	}
 
 	public Stack(int size)
 	{
 		this.size=size;
 		stackArray=(T[]) new Object[size];
+	}
+
+	public Stack()
+	{
+		this(DEFAULT_STACK_SIZE);
 	}
 
 	public void push(T element)
@@ -73,7 +73,7 @@ public class Stack<T>
 	{
 		if(!isEmpty())
 		{
-			for(int i=0;i<topPointer;i++)
+			for(int i=0;i<=topPointer;i++)
 			{
 				if(stackArray[i].equals(element))
 				{
