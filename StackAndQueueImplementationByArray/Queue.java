@@ -3,14 +3,14 @@ import java.lang.UnsupportedOperationException;
 
 public class Queue<T>
 {
+	private int DEFAULT_QUEUE_SIZE=10;
 	private int size;
 	private int rarePointer=-1;
 	private T[] queueArray;
 
 	public Queue()
 	{
-			this.size=10;
-			queueArray=(T[]) new Object[size];
+		this(DEFAULT_QUEUE_SIZE);
 	}
 
 	public Queue(int size)
@@ -53,26 +53,12 @@ public class Queue<T>
 
 	public boolean isFull()
 	{
-		if(rarePointer==size-1)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return rarePointer==size-1;
 	}
 
 	public boolean isEmpty()
 	{
-		if(rarePointer<0)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return rarePointer<0;
 	}
 
 	public T peek()
@@ -91,9 +77,9 @@ public class Queue<T>
 	{
 		if(!isEmpty())
 		{
-			for(int i=0;i<size;i++)
+			for(int i=0;i<rarePointer;i++)
 			{
-				if(queueArray[i]!=null && queueArray[i].equals(element))
+				if(queueArray[i].equals(element))
 				{
 					return i+1;
 				}

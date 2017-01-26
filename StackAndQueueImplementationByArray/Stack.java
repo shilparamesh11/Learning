@@ -3,14 +3,14 @@ import java.lang.UnsupportedOperationException;
 
 public class Stack<T>
 {
+	private int DEFAULT_STACK_SIZE=10
 	private int size;
 	private int topPointer=-1;
 	private T[] stackArray;
 
 	public Stack()
 	{
-		this.size=10;
-		stackArray=(T[]) new Object[size];
+		this(DEFAULT_STACK_SIZE);
 	}
 
 	public Stack(int size)
@@ -49,26 +49,12 @@ public class Stack<T>
 
 	public boolean isFull()
 	{
-		if(topPointer==size-1)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return topPointer==size-1;
 	}
 
 	public boolean isEmpty()
 	{
-		if(topPointer<0)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return topPointer<0;
 	}
 
 	public T peek()
@@ -87,9 +73,9 @@ public class Stack<T>
 	{
 		if(!isEmpty())
 		{
-			for(int i=0;i<size;i++)
+			for(int i=0;i<topPointer;i++)
 			{
-				if(stackArray[i]!=null && stackArray[i].equals(element))
+				if(stackArray[i].equals(element))
 				{
 					return size-i;
 				}
